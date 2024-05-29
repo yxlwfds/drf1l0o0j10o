@@ -12,25 +12,18 @@ To start a new project using this template, follow these steps:
 1. Clone this repository to your local machine:
 
 ```bash
-git clone https://github.com/Palwisha-18/django-drf-template.git
+git clone https://github.com/yxlwfds/drf1l0o0j10o1.git
 ```
 
-2. Navigate into the `django_project` directory:
+2. Navigate into the `myproject` directory:
 
 ```bash
-cd django-drf-template
-cd django_project
-```
-
-3. Set environment variables:
-
-```bash
-cp .env.example .env
+cd myproject
 ```
 
 Open the `.env` file and set the value of all environment variables.
 
-4. Build and run the Docker containers:
+3. Build and run the Docker containers:
 
 ```bash
 docker-compose up -d --build
@@ -44,5 +37,21 @@ You can access the Django application running on `127.0.0.1:8000` in your web br
 
 6. Test the API endpoint:
 
-A sample API endpoint is available at `127.0.0.1:8000/api/app1/home`. You can modify or extend it according to your
-project's requirements.
+- `/signup/`, testing request:
+
+    ```bash
+    curl --location 'http://127.0.0.1:8000/signup/' --data-raw '{"email": "test@test.com","password": "123"}'
+    ```
+
+    - Expected server response: {id, email} of the user
+- `/signin/` , testing request:
+
+    ```bash
+    curl --location http://127.0.0.1:8000/signin/ --data-raw '{"email": "test@test.com","password": "123"}'
+    ```
+
+    - Expected server response: dict of {access_token, refresh_token}
+- `/me/`, testing request:
+
+    ```bash
+    curl --location 'http://127.0.0.1:8000/me/' --header 'Authorization: Bearer <eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzE2OTc1Nzg1LCJpYXQiOjE3MTY5NzM5ODUsImp0aSI6ImJhMmNlODQ2ODY1NjRkYmNhMDk0YjAwOTg5NTBlZWFkIiwidXNlcl9pZCI6MX0.ULM83py1CkMS2lovi-3fOEkZ8NRjijYt-dQXQXJlBxo'
