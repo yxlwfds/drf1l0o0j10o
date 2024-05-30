@@ -10,8 +10,5 @@ services:
     ports:
       - "8000:8000"
     volumes:
-      - .:/django_project
-    depends_on:
-      web_app_db:
-        condition: service_healthy
+      - .:/myproject
     restart: on-failure
