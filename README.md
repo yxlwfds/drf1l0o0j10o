@@ -12,7 +12,7 @@ To start a new project using this template, follow these steps:
 1. Clone this repository to your local machine:
 
 ```bash
-git clone https://github.com/yxlwfds/drf1l0o0j10o1.git
+git clone https://github.com/yxlwfds/drf1l0o0j10o.git
 ```
 
 2. Navigate into the `myproject` directory:
