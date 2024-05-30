@@ -1,12 +1,15 @@
-FROM python:3.8
-RUN apt-get update -qq && apt-get install -y -qq \
-    gdal-bin binutils libproj-dev libgdal-dev cmake &&\
-    apt-get clean all &&\
-    rm -rf /var/apt/lists/* &&\
-    rm -rf /var/cache/apt/*
-ENV PYTHONUNBUFFERED 1
-WORKDIR /django_project
-COPY . /django_project
+FROM python:3.8.5-alpine
+apk add gcc g++ make cmake gfortran libffi-dev openssl-dev libtool
+RUN pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple/
+RUN pip install --upgrade pip
+
+COPY ./requirements.txt .
 RUN pip install -r requirements.txt
-COPY entrypoint.sh /entrypoint.sh
+
+ENV PYTHONUNBUFFERED 1
+WORKDIR /myproject
+COPY . /myproject
+
+COPY ./entrypoint.sh /
 RUN chmod +x /entrypoint.sh
+ENTRYPOINT ["sh", "/entrypoint.sh"]

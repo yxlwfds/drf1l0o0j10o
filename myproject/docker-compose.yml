@@ -7,9 +7,8 @@ services:
       context: .
       dockerfile: DockerFile
     entrypoint: /entrypoint.sh
-    command: bash -c "python manage.py runserver 0.0.0.0:8000"
     ports:
-      - "${DJANGO_PORT}:${DJANGO_PORT}"
+      - "8000:8000"
     volumes:
       - .:/django_project
     depends_on:

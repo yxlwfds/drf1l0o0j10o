@@ -21,8 +21,6 @@ git clone https://github.com/yxlwfds/drf1l0o0j10o1.git
 cd myproject
 ```
 
-Open the `.env` file and set the value of all environment variables.
-
 3. Build and run the Docker containers:
 
 ```bash
